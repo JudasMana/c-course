@@ -15,6 +15,7 @@ int main(){
 
   lineIndex = 0;
   while((currentLength = getLine(currentLine, MAX_LENGTH)) != 0){
+    if (lineIndex == MAX_DOC_LENGTH) break;
     if (currentLength >= LEN_TRESHOLD + 1){
       copyLine(currentLine, longLines[lineIndex]);
       ++lineIndex;
