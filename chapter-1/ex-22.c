@@ -47,11 +47,16 @@ void foldLines(char text[], int maxLineLength){
     }
 
     if (lineLength == maxLineLength){
-      if (lastSpaceIndex == SPACE_NOT_FOUND || (lastSpaceIndex - lineStartIndex) > maxLineLength){
-        printf("Inserting newline on character with index: %d\n", i);
-        text[i] = '\n';  
+      if (lastSpaceIndex != SPACE_NOT_FOUND || (lastSpaceIndex - lineStartIndex) > maxLineLength){
+        text[i] = '\n';
+       lineStartIndex = lastSpaceIndex + 1;
         lineLength = i - lineStartIndex;
-        lineStartIndex = lastSpaceIndex + 1;
+        continue;
+      } else if(lastSpaceIndex == SPACE_NOT_FOUND) {
+        text[i] = '\n';
+        lineStartIndex = i + 1;
+        lineLength = i - lineStartIndex;
+        continue;
       } else {
         printf("Inserting newline on space with index: %d\n", lastSpaceIndex);
         text[lastSpaceIndex] = '\n';
@@ -60,7 +65,7 @@ void foldLines(char text[], int maxLineLength){
         lastSpaceIndex = SPACE_NOT_FOUND;
       }
     }
-
+    
     ++i;
   }
 }
