@@ -3,9 +3,9 @@
 int binarySearch(int num, int arr[], int arrLength);
 
 int main(){
-  int sortedArray[5] = {1, 2, 4, 5, 6};
-  int num = 4;
-  int index = binarySearch(num, sortedArray, 5);
+  int sortedArray[3] = {1, 2, 3};
+  int num = 2;
+  int index = binarySearch(num, sortedArray, 3);
   printf("Result: %d\n", index);
 
   return 0;
