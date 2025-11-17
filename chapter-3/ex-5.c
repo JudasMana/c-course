@@ -41,6 +41,7 @@ void itob(int n, char s[], int b){
     s[i++] = '-';
   }
   s[i] = '\0';
+  if (exception) s[0] += 1;
   reverse(s);
 }
 
